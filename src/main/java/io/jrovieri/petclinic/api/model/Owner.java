@@ -8,9 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * The Owner model.
+ * @author jrovieri
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -21,5 +27,11 @@ public class Owner extends Person {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets = new HashSet<>();
-	
+
+	@Builder
+	public Owner(Long id, PostalAddress address, String email, String name, 
+			String telephone, Set<Pet> pets) {
+		super(id, address, email, name, telephone);
+		this.pets = pets;
+	}
 }

@@ -4,9 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * The Postal Address model.
+ * @author jrovieri
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -29,4 +35,15 @@ public class PostalAddress extends BaseEntity {
 	
 	@Column(name = "address")
 	private String streetAddress;
+
+	@Builder
+	public PostalAddress(Long id, String addressCountry, String addressLocality, 
+			String addressRegion, String postalCode, String streetAddress) {
+		super(id);
+		this.addressCountry = addressCountry;
+		this.addressLocality = addressLocality;
+		this.addressRegion = addressRegion;
+		this.postalCode = postalCode;
+		this.streetAddress = streetAddress;
+	}
 }

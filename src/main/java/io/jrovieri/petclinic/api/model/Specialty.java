@@ -4,9 +4,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * The Specialty model.
+ * @author jrovieri
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -20,4 +26,11 @@ public class Specialty extends BaseEntity {
 	
 	@Column(name = "name")
 	private String name;
+
+	@Builder
+	public Specialty(Long id, String description, String name) {
+		super(id);
+		this.description = description;
+		this.name = name;
+	}
 }

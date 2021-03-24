@@ -10,9 +10,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * The Vet model.
+ * @author jrovieri
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -26,4 +32,11 @@ public class Vet extends Person {
 		joinColumns = @JoinColumn(name = "vet_id"),
 		inverseJoinColumns = @JoinColumn(name = "specialty_id"))
 	private Set<Specialty> specialties = new HashSet<>();
+
+	@Builder
+	public Vet(Long id, PostalAddress address, String email, String name, 
+			String telephone, Set<Specialty> specialties) {
+		super(id, address, email, name, telephone);
+		this.specialties = specialties;
+	}
 }

@@ -7,9 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
+/**
+ * The BaseEntity abstract model.
+ * @author jrovieri
+ *
+ */
 @Data
+@AllArgsConstructor
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 

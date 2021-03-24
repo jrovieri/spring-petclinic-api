@@ -12,9 +12,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * The Pet model.
+ * @author jrovieri
+ *
+ */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Entity
@@ -22,6 +28,17 @@ import lombok.EqualsAndHashCode;
 public class Pet extends BaseEntity {
 	
 	private static final long serialVersionUID = 2690496550849377267L;
+
+	@Builder
+	public Pet(Long id, LocalDate birthDate, String name, Owner owner, 
+			PetType petType, Set<Visit> visits) {
+		super(id);
+		this.birthDate = birthDate;
+		this.name = name;
+		this.owner = owner;
+		this.petType = petType;
+		this.visits = visits;
+	}
 
 	@Column(name = "birth_date")
 	private LocalDate birthDate;
