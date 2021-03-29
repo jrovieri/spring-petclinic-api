@@ -9,6 +9,7 @@ import javax.persistence.MappedSuperclass;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * The BaseEntity abstract model.
@@ -17,6 +18,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
 
