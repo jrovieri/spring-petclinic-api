@@ -1,9 +1,13 @@
 package io.jrovieri.petclinic.api.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import io.jrovieri.petclinic.api.model.Vet;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface VetRepository extends JpaRepository<Vet, Long> {
-
-}
+/**
+ * The Vet Repository
+ *
+ * @author jrovieri
+ */
+@Repository
+public interface VetRepository extends JpaRepository<Vet, Long> {}
