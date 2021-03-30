@@ -3,47 +3,53 @@ package io.jrovieri.petclinic.api.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
- * The Postal Address model.
- * @author jrovieri
+ * The PostalAddress Model
  *
+ * @author jrovieri
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
 @Entity
 @Table(name = "postal_addresses")
 public class PostalAddress extends BaseEntity {
 
-	private static final long serialVersionUID = 7647033052756579615L;
+  private static final long serialVersionUID = 7647033052756579615L;
 
-	@Column(name = "country")
-	private String addressCountry;
-	
-	@Column(name = "locality")
-	private String addressLocality;
-	
-	@Column(name = "region")
-	private String addressRegion;
-	
-	@Column(name = "postal_code")
-	private String postalCode;
-	
-	@Column(name = "address")
-	private String streetAddress;
+  @Column(name = "country")
+  private String addressCountry;
 
-	@Builder
-	public PostalAddress(Long id, String addressCountry, String addressLocality, 
-			String addressRegion, String postalCode, String streetAddress) {
-		super(id);
-		this.addressCountry = addressCountry;
-		this.addressLocality = addressLocality;
-		this.addressRegion = addressRegion;
-		this.postalCode = postalCode;
-		this.streetAddress = streetAddress;
-	}
+  @Column(name = "locality")
+  private String addressLocality;
+
+  @Column(name = "region")
+  private String addressRegion;
+
+  @Column(name = "postal_code")
+  private String postalCode;
+
+  @Column(name = "address")
+  private String streetAddress;
+
+  @Builder
+  public PostalAddress(
+      Long id,
+      String addressCountry,
+      String addressLocality,
+      String addressRegion,
+      String postalCode,
+      String streetAddress) {
+    super(id);
+    this.addressCountry = addressCountry;
+    this.addressLocality = addressLocality;
+    this.addressRegion = addressRegion;
+    this.postalCode = postalCode;
+    this.streetAddress = streetAddress;
+  }
 }
