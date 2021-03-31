@@ -1,6 +1,5 @@
 package io.jrovieri.petclinic.api.dto;
 
-import io.jrovieri.petclinic.api.model.Pet;
 import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Data;
@@ -19,12 +18,12 @@ public class VisitDTO {
 
   private String description;
 
-  private Pet pet;
+  private PetDTO pet;
 
   private LocalDateTime startDate;
 
   @Builder
-  public VisitDTO(Long id, String description, Pet pet, LocalDateTime startDate) {
+  public VisitDTO(Long id, String description, PetDTO pet, LocalDateTime startDate) {
     this.id = id;
     this.description = description;
     this.pet = pet;

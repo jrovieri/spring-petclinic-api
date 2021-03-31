@@ -1,7 +1,5 @@
 package io.jrovieri.petclinic.api.dto;
 
-import io.jrovieri.petclinic.api.model.Owner;
-import io.jrovieri.petclinic.api.model.PetType;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.Builder;
@@ -23,9 +21,9 @@ public class PetDTO {
 
   private String name;
 
-  private Owner owner;
+  private OwnerDTO owner;
 
-  private PetType petType;
+  private PetTypeDTO petType;
 
   private List<VisitDTO> visits;
 
@@ -34,8 +32,8 @@ public class PetDTO {
       Long id,
       LocalDate birthDate,
       String name,
-      Owner owner,
-      PetType petType,
+      OwnerDTO owner,
+      PetTypeDTO petType,
       List<VisitDTO> visits) {
     this.id = id;
     this.birthDate = birthDate;
